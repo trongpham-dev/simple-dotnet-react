@@ -13,6 +13,7 @@ import ProductDetails from "./features/catalog/ProductDetails";
 import AboutPage from "./features/about/AboutPage";
 import ContactPage from "./features/contact/ContactPage";
 import ServerError from "./app/errors/ServerError";
+import { StoreProvider } from "./app/context/StoreContext";
 
 export const history = createBrowserRouter([
   {
@@ -33,7 +34,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={history} />
+    <StoreProvider>
+      <RouterProvider router={history} />
+    </StoreProvider>
   </React.StrictMode>
 );
 
